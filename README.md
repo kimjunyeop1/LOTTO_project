@@ -20,13 +20,14 @@ LOTTO_PROJECT/
     ├── pension_phase2.py  # 🏆 [Champion] 거시적 패턴(Sum, Odd, High) 예측 모델
     └── pension_phase3.py  # 마르코프 연쇄(Markov Chain) 전이 확률 분석
 
-🚀 Key Experiments & Results
+
+##🚀 Key Experiments & Results
 Part 1: 로또 6/45 (Lotto) - 시계열 모멘텀의 발견
 Phase 1~3 (Baseline & Feature Engineering): 단순 빈도와 인간의 직관(총합/홀짝 비율)을 강제한 모델은 오히려 성능이 저하됨을 확인.
 
 Phase 4~5 (XGBoost + Optuna + TSCV): 각 번호의 시계열적 '생체 리듬(HistAvgGap)'과 '단기 모멘텀(Recency)' 특징 12가지를 추출.
 
-🏆 최종 결과: 5-fold TimeSeriesSplit 교차 검증 결과, 평균 적중률(CV Hit Rate) 0.8567을 달성하며 순수 무작위 기댓값(0.8)을 수학적으로 돌파. (SHAP 분석을 통해 Gap과 Recency의 중요도 증명)
+##🏆 최종 결과: 5-fold TimeSeriesSplit 교차 검증 결과, 평균 적중률(CV Hit Rate) 0.8567을 달성하며 순수 무작위 기댓값(0.8)을 수학적으로 돌파. (SHAP 분석을 통해 Gap과 Recency의 중요도 증명)
 
 Phase 6 (LSTM): 딥러닝 모델 적용 시도, 데이터 부족(1,200건)으로 인한 Underfitting 현상 증명.
 
@@ -37,7 +38,7 @@ Phase 2 (거시적 패턴 예측): 개별 숫자가 아닌 6개 숫자의 '총�
 
 Phase 3 (Markov Chain): 카이제곱 검정(Chi-Square Test)을 통해 모든 전이 확률 행렬의 p-value > 0.05임을 확인. 대한민국 연금복권 추첨기에 어떠한 물리적 결함이나 메모리 효과(Memory Effect)가 없음을 완벽히 증명.
 
-🛠️ Tech Stack
+##🛠️ Tech Stack
 Data Science: Python, Pandas, NumPy
 
 Machine Learning & DL: XGBoost, Scikit-learn, PyTorch
