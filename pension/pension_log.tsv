@@ -1,0 +1,4 @@
+phase	description	targets	features	model	cv_mean_accuracy	test_mean_accuracy	next_prediction
+1	Pension Phase 1 - 7 independent XGBoost classifiers	group,n1,n2,n3,n4,n5,n6	Freq5,Freq10,Freq15,Freq20,Freq30,Gap,PrevGap,HistAvgGap,Mom_10_30,Mom_10_20,Mom_15_30,Recency	XGBClassifier(n_estimators=200, max_depth=6, lr=0.1) per target	0.1131	0.1095	1,8,0,3,1,7,2
+2	Pension Phase 2 - Macro Properties (Sum, Odd_Count, High_Count)	Sum_Digits,Odd_Count,High_Count	Rolling mean/std/sum/min/max/roc of macro targets (last 5/10/20 draws)	XGBRegressor(Sum) + XGBClassifier(Odd/High), n_estimators=200, max_depth=5	6.3436	0.2255	0.2979	sum=22.9,odd=4,high=2
+3	Pension Phase 3 - Markov Chain + Chi-Square Test	7 targets (group, n1-n6)	Transition Matrix (5x5 group, 10x10 digits) + Chi-Square vs uniform, alpha=0.05	group=0.6455;n1=0.8301;n2=0.5588;n3=0.1480;n4=0.3833;n5=0.5415;n6=0.3151	0/7 targets have memory (p<0.05)	group=1,n1=2,n2=3,n3=6,n4=0,n5=5,n6=2
